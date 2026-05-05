@@ -1,3 +1,9 @@
+> **Proprietary Notice:** This repository is private and proprietary. No license is granted for use, copying, modification, redistribution, or commercial deployment without explicit written permission from the author. Unauthorized use, copying, modification, distribution, or commercialization of this codebase is strictly prohibited without explicit written permission.
+
+Access to this repository does NOT grant any license or rights to use the code.
+
+See the LICENSE file for full terms.
+
 # Rust Market-Making Gateway
 
 A Rust trading-systems gateway that connects to live crypto exchange feeds, maintains normalized market data across multiple venues, exposes real-time operational APIs, and routes simulated buy/sell requests to the best fresh venue.
