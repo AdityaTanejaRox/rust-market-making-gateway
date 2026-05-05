@@ -1,0 +1,17 @@
+services:
+  rust-market-making-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rust-market-making-gateway
+    ports:
+      - "8080:8080"
+    environment:
+      RUST_LOG: "info,rust_market_making_gateway=debug"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+      start_period: 15s

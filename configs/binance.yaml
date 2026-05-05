@@ -1,0 +1,53 @@
+service:
+  name: rust-market-making-gateway
+  http_addr: "0.0.0.0:8080"
+
+venues:
+  - name: BINANCE
+    kind: binance
+    ws_base_url: "wss://data-stream.binance.vision/ws"
+    rest_base_url: "https://data-api.binance.vision"
+    heartbeat_timeout_ms: 60000
+    reconnect_base_delay_ms: 500
+    reconnect_max_delay_ms: 10000
+    stale_after_ms: 3000
+    markets:
+      - symbol: BTCUSDT
+        venue_symbol: BTCUSDT
+      - symbol: ETHUSDT
+        venue_symbol: ETHUSDT
+      - symbol: SOLUSDT
+        venue_symbol: SOLUSDT
+
+  - name: COINBASE
+    kind: coinbase
+    ws_url: "wss://ws-feed.exchange.coinbase.com"
+    heartbeat_timeout_ms: 60000
+    reconnect_base_delay_ms: 500
+    reconnect_max_delay_ms: 10000
+    stale_after_ms: 10000
+    markets:
+      - symbol: BTCUSDT
+        venue_symbol: BTC-USD
+      - symbol: ETHUSDT
+        venue_symbol: ETH-USD
+      - symbol: SOLUSDT
+        venue_symbol: SOL-USD
+
+  - name: KRAKEN
+    kind: kraken
+    ws_url: "wss://ws.kraken.com/v2"
+    heartbeat_timeout_ms: 60000
+    reconnect_base_delay_ms: 500
+    reconnect_max_delay_ms: 10000
+    stale_after_ms: 10000
+    markets:
+      - symbol: BTCUSDT
+        venue_symbol: BTC/USD
+      - symbol: ETHUSDT
+        venue_symbol: ETH/USD
+      - symbol: SOLUSDT
+        venue_symbol: SOL/USD
+
+rate_limits:
+  outbound_messages_per_second: 5
